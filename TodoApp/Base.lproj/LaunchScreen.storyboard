@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRX-p8-k3s">
-                                <rect key="frame" x="0.0" y="387.66666666666669" width="393" height="77"/>
+                                <rect key="frame" x="96.333333333333329" y="387.66666666666669" width="200.66666666666669" height="77"/>
                                 <attributedString key="attributedText">
                                     <fragment content="ToDo App">
                                         <attributes>
@@ -33,9 +33,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qRX-p8-k3s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9gG-Eh-aKe"/>
-                            <constraint firstItem="qRX-p8-k3s" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="JlN-WS-2i9"/>
-                            <constraint firstItem="qRX-p8-k3s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QxD-OW-1ET"/>
+                            <constraint firstItem="qRX-p8-k3s" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8CF-WU-Qgz"/>
+                            <constraint firstItem="qRX-p8-k3s" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="wfm-Uu-OW6"/>
                         </constraints>
                     </view>
                 </viewController>
