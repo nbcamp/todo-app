@@ -8,6 +8,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.layer.opacity = 0.0
+        completesButton.layer.opacity = 0.0
         titleLabel.transform = CGAffineTransform(translationX: 0, y: 200)
 
         UIView.animate(
@@ -17,6 +19,11 @@ class ViewController: UIViewController {
             initialSpringVelocity: 10
         ) {
             self.titleLabel.transform = .identity
+        }
+
+        UIView.animate(withDuration: 0.5, delay: 0.3) {
+            self.tableView.layer.opacity = 1.0
+            self.completesButton.layer.opacity = 1.0
         }
     }
 }
