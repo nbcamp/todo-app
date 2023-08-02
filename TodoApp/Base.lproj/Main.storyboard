@@ -19,6 +19,32 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sZ8-UB-dZL">
                                 <rect key="frame" x="30" y="288" width="333" height="276"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" rowHeight="50" id="obZ-Te-bEy" customClass="ToDoCell" customModule="TodoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="333" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="obZ-Te-bEy" id="Zrk-7D-i1t">
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pe-0d-qEF">
+                                                    <rect key="frame" x="20" y="14.999999999999998" width="293" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7Pe-0d-qEF" secondAttribute="trailing" id="4cj-F7-4Za"/>
+                                                <constraint firstItem="7Pe-0d-qEF" firstAttribute="leading" secondItem="Zrk-7D-i1t" secondAttribute="leadingMargin" id="idB-XF-QP5"/>
+                                                <constraint firstItem="7Pe-0d-qEF" firstAttribute="centerY" secondItem="Zrk-7D-i1t" secondAttribute="centerY" id="j5c-bJ-DAQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="todoLabel" destination="7Pe-0d-qEF" id="7Fp-B7-aTG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToDo App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-EO-cHR">
                                 <rect key="frame" x="113.00000000000001" y="194" width="167.33333333333337" height="64"/>
