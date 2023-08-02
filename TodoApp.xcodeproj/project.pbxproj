@@ -13,6 +13,7 @@
 		332006382A778AE2004EC0E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332006362A778AE2004EC0E8 /* Main.storyboard */; };
 		3320063A2A778AE2004EC0E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332006392A778AE2004EC0E8 /* Assets.xcassets */; };
 		3320063D2A778AE2004EC0E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3320063B2A778AE2004EC0E8 /* LaunchScreen.storyboard */; };
+		33B2C46F2A7A3FE80065DD51 /* CompletesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2C46E2A7A3FE80065DD51 /* CompletesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		332006392A778AE2004EC0E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3320063C2A778AE2004EC0E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3320063E2A778AE2004EC0E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33B2C46E2A7A3FE80065DD51 /* CompletesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				332006302A778AE2004EC0E8 /* AppDelegate.swift */,
 				332006322A778AE2004EC0E8 /* SceneDelegate.swift */,
 				332006342A778AE2004EC0E8 /* ViewController.swift */,
+				33B2C46E2A7A3FE80065DD51 /* CompletesViewController.swift */,
 				332006362A778AE2004EC0E8 /* Main.storyboard */,
 				332006392A778AE2004EC0E8 /* Assets.xcassets */,
 				3320063B2A778AE2004EC0E8 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				332006352A778AE2004EC0E8 /* ViewController.swift in Sources */,
 				332006312A778AE2004EC0E8 /* AppDelegate.swift in Sources */,
 				332006332A778AE2004EC0E8 /* SceneDelegate.swift in Sources */,
+				33B2C46F2A7A3FE80065DD51 /* CompletesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

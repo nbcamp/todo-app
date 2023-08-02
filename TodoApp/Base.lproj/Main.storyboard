@@ -31,6 +31,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Completes..."/>
+                                <connections>
+                                    <segue destination="Fyx-bZ-dgN" kind="presentation" identifier="CompletesVC" id="pM2-4i-loC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e1I-R1-xP1"/>
@@ -55,6 +58,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rO-tp-njW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1119.8473282442749" y="-63.380281690140848"/>
+        </scene>
+        <!--Completes View Controller-->
+        <scene sceneID="jNg-hS-L0e">
+            <objects>
+                <viewController id="Fyx-bZ-dgN" customClass="CompletesViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HBG-xr-Y20">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완료 목록 페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-JM-3ef">
+                                <rect key="frame" x="140.66666666666666" y="410.66666666666669" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lkj-Yb-xk5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TVi-JM-3ef" firstAttribute="centerY" secondItem="HBG-xr-Y20" secondAttribute="centerY" id="R73-LG-R0c"/>
+                            <constraint firstItem="TVi-JM-3ef" firstAttribute="centerX" secondItem="HBG-xr-Y20" secondAttribute="centerX" id="VYn-3y-Epz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5RM-J8-XF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="370"/>
         </scene>
     </scenes>
     <resources>
