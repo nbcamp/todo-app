@@ -3,6 +3,7 @@ import UIKit
 final class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var completesButton: UIButton!
 
     var todoService = TodoService()
@@ -27,6 +28,7 @@ final class ViewController: UIViewController {
             return label
         }()
         tableView.layer.opacity = 0.0
+        newButton.layer.opacity = 0.0
         completesButton.layer.opacity = 0.0
         titleLabel.transform = CGAffineTransform(translationX: 0, y: 200)
 
@@ -41,10 +43,30 @@ final class ViewController: UIViewController {
 
         UIView.animate(withDuration: 0.5, delay: 0.3) {
             self.tableView.layer.opacity = 1.0
+            self.newButton.layer.opacity = 1.0
             self.completesButton.layer.opacity = 1.0
         }
 
         tableView.separatorStyle = .none
+    }
+}
+
+extension ViewController {
+    @IBAction func newButtonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Add New Todo Item", message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Add", style: .default) { [weak alert] _ in
+            let text = alert?.textFields?[0].text ?? ""
+            if text.isEmpty { return }
+            self.todoService.add(content: text)
+            self.tableView.insertRows(at: [.init(row: self.items.count - 1, section: 0)], with: .automatic)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            self.dismiss(animated: true)
+        }
+        alert.addTextField { $0.placeholder = "Write Here" }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
 }
 
@@ -64,6 +86,7 @@ extension ViewController: UITableViewDataSource {
 
         let item = items[indexPath.row]
         cell.todoLabel.text = item.content
+        cell.completed = item.completed
         cell.selectionStyle = .none
         cell.onCompleted = { cell in
             self.todoService.toggle(id: item.id)

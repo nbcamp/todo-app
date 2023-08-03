@@ -15,7 +15,7 @@ final class TodoService {
     }
 
     func toggle(id: String) {
-        guard var item = (items.first { $0.id == id }) else { return }
+        guard let item = (items.first { $0.id == id }) else { return }
         item.completedAt = item.completed ? nil : UInt(Date().timeIntervalSince1970)
     }
 }

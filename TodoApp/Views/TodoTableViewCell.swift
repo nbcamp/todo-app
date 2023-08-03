@@ -8,13 +8,15 @@ final class TodoTableViewCell: UITableViewCell {
     var completed: Bool = false {
         didSet {
             completeButton.isSelected = completed
-            todoLabel.attributedText = NSAttributedString(
-                string: todoLabel.text!,
-                attributes: completed ? [
-                    .strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                    .foregroundColor: UIColor.darkGray
-                ] : [:]
-            )
+            let attributedText = NSMutableAttributedString(string: todoLabel.text!)
+            if completed {
+                attributedText.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributedText.length))
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: CGColor.init(gray: 0.5, alpha: 1.0), range: NSMakeRange(0, attributedText.length))
+            } else {
+                attributedText.addAttribute(NSAttributedString.Key.strikethroughStyle, value: [] as [Any], range: NSMakeRange(0, attributedText.length))
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: CGColor.init(gray: 0.0, alpha: 1.0), range: NSMakeRange(0, attributedText.length))
+            }
+            todoLabel.attributedText = attributedText
         }
     }
 
