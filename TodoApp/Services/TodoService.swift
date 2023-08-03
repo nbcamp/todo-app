@@ -1,0 +1,21 @@
+import Foundation
+
+final class TodoService {
+    private(set) var items: [TodoItem] = [
+        TodoItem(content: "Navigation 기능 구현하기"),
+        TodoItem(content: "페이지 간 데이터 전달하기"),
+        TodoItem(content: "TableView 사용법 연습하기"),
+    ]
+
+    var uncompletedItems: [TodoItem] { items.filter { !$0.completed } }
+    var completedItems: [TodoItem] { items.filter { $0.completed } }
+
+    func add(content: String) {
+        items.append(TodoItem(content: content))
+    }
+
+    func toggle(id: String) {
+        guard var item = (items.first { $0.id == id }) else { return }
+        item.completedAt = item.completed ? nil : UInt(Date().timeIntervalSince1970)
+    }
+}
