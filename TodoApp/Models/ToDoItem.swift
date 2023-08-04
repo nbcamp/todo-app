@@ -14,3 +14,15 @@ final class TodoItem {
         self.createdAt = UInt(Date().timeIntervalSince1970)
     }
 }
+
+extension TodoItem: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return """
+        TodoItem(
+            id: \(id),
+            content: \(content),
+            completed: \(completed)
+        )
+        """
+    }
+}

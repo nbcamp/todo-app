@@ -6,7 +6,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var completesButton: UIButton!
 
-    var todoService = TodoService()
+    var todoService = TodoService.shared
     var items: [TodoItem] { todoService.uncompletedItems }
 
     override func viewDidLoad() {
@@ -16,6 +16,10 @@ final class ViewController: UIViewController {
         tableView.delegate = self
 
         initializeUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     func initializeUI() {
@@ -46,8 +50,6 @@ final class ViewController: UIViewController {
             self.newButton.layer.opacity = 1.0
             self.completesButton.layer.opacity = 1.0
         }
-
-        tableView.separatorStyle = .none
     }
 }
 
@@ -100,3 +102,15 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {}
+
+extension ViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CompletesVC" {
+            if let vc = segue.destination as? CompletesViewController {
+                vc.onDismissed = {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+}

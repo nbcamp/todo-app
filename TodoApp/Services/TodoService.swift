@@ -1,6 +1,9 @@
 import Foundation
 
 final class TodoService {
+    static var shared: TodoService = .init()
+    private init() {}
+
     private(set) var items: [TodoItem] = [
         TodoItem(content: "Navigation 기능 구현하기"),
         TodoItem(content: "페이지 간 데이터 전달하기"),
@@ -16,6 +19,7 @@ final class TodoService {
 
     func toggle(id: String) {
         guard let item = (items.first { $0.id == id }) else { return }
+        
         item.completedAt = item.completed ? nil : UInt(Date().timeIntervalSince1970)
     }
 }
