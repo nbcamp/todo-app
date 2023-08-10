@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
 
         initializeUI()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -51,9 +51,7 @@ final class ViewController: UIViewController {
             self.completesButton.layer.opacity = 1.0
         }
     }
-}
 
-extension ViewController {
     @IBAction func newButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add New Todo Item", message: nil, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Add", style: .default) { [weak alert] _ in
@@ -86,15 +84,34 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let item = items[indexPath.row]
+        let index = indexPath.row
+        let item = items[index]
         cell.todoLabel.text = item.content
         cell.completed = item.completed
         cell.selectionStyle = .none
-        cell.onCompleted = { cell in
+        cell.onCompleted = { [weak self] cell in
+            guard let self else { return }
             self.todoService.toggle(id: item.id)
             cell.completed = item.completed
             guard let indexPath = tableView.indexPath(for: cell) else { return }
             tableView.deleteRows(at: [indexPath], with: .top)
+        }
+        cell.onLabelTapped = { [weak self] label in
+            guard let self else { return }
+            let alert = UIAlertController(title: "Edit Todo Item", message: nil, preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Edit", style: .default) { [weak alert] _ in
+                let text = alert?.textFields?[0].text ?? ""
+                if text.isEmpty { return }
+                label.text = text
+                self.todoService.update(index: index, content: text)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                self.dismiss(animated: true)
+            }
+            alert.addTextField { $0.placeholder = label.text }
+            alert.addAction(confirmAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true)
         }
 
         return cell

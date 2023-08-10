@@ -17,9 +17,13 @@ final class TodoService {
         items.append(TodoItem(content: content))
     }
 
+    func update(index: Int, content: String) {
+        items[index].content = content
+    }
+
     func toggle(id: String) {
         guard let item = (items.first { $0.id == id }) else { return }
-        
+
         item.completedAt = item.completed ? nil : UInt(Date().timeIntervalSince1970)
     }
 }
