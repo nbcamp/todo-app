@@ -18,10 +18,6 @@ final class ViewController: UIViewController {
         initializeUI()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     func initializeUI() {
         titleLabel.text = "Todo List"
         tableView.backgroundView = {
