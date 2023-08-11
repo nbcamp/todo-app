@@ -67,7 +67,6 @@
 				33B2C4722A7A485E0065DD51 /* Models */,
 				33B2C4772A7B338B0065DD51 /* Services */,
 				33B2C4732A7A48690065DD51 /* Views */,
-				33B2C4742A7A486E0065DD51 /* Controllers */,
 				332006302A778AE2004EC0E8 /* AppDelegate.swift */,
 				332006322A778AE2004EC0E8 /* SceneDelegate.swift */,
 				332006362A778AE2004EC0E8 /* Main.storyboard */,
@@ -89,18 +88,11 @@
 		33B2C4732A7A48690065DD51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				332006342A778AE2004EC0E8 /* ViewController.swift */,
+				33B2C46E2A7A3FE80065DD51 /* CompletesViewController.swift */,
 				33B2C4702A7A47BD0065DD51 /* TodoTableViewCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		33B2C4742A7A486E0065DD51 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				332006342A778AE2004EC0E8 /* ViewController.swift */,
-				33B2C46E2A7A3FE80065DD51 /* CompletesViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		33B2C4772A7B338B0065DD51 /* Services */ = {
