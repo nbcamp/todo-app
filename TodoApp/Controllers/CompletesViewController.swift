@@ -1,11 +1,17 @@
 import UIKit
 
+// protocol CompletesViewControllerDelegate {
+//    func onDismissed()
+// }
+
 final class CompletesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let todoService = TodoService.shared
-    var items: [TodoItem] { todoService.completedItems }
+    var items: [TodoItem] { todoService.items.filter { $0.completed } }
     var onDismissed: (() -> Void)?
+
+//    var delegate: CompletesViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +24,7 @@ final class CompletesViewController: UIViewController {
         super.viewWillDisappear(animated)
 
         onDismissed?()
+//        delegate?.onDismissed()
     }
 
     func initializeUI() {

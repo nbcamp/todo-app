@@ -5,13 +5,11 @@ final class TodoService {
     private init() {}
 
     private(set) var items: [TodoItem] = [
-        TodoItem(content: "Navigation 기능 구현하기"),
-        TodoItem(content: "페이지 간 데이터 전달하기"),
-        TodoItem(content: "TableView 사용법 연습하기"),
+        TodoItem(content: "New를 눌러 새로운 항목을 추가해보세요!"),
+        TodoItem(content: "여기를 눌러 할 일 내용을 변경해보세요!"),
+        TodoItem(content: "체크박스를 눌러 할 일을 완료해보세요!"),
+        TodoItem(content: "Completes를 눌러 완료 내역을 확인하세요!"),
     ]
-
-    var uncompletedItems: [TodoItem] { items.filter { !$0.completed } }
-    var completedItems: [TodoItem] { items.filter { $0.completed } }
 
     func add(content: String) {
         items.append(TodoItem(content: content))

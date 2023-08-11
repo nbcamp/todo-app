@@ -7,7 +7,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var completesButton: UIButton!
 
     var todoService = TodoService.shared
-    var items: [TodoItem] { todoService.uncompletedItems }
+    var items: [TodoItem] { todoService.items.filter { !$0.completed } }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,3 +131,9 @@ extension ViewController {
         }
     }
 }
+
+//extension ViewController: CompletesViewControllerDelegate {
+//    func onDismissed() {
+//        tableView.reloadData()
+//    }
+//}
