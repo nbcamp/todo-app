@@ -1,17 +1,17 @@
 import UIKit
 
-// protocol CompletesViewControllerDelegate {
-//    func onDismissed()
-// }
+@objc protocol CompletesViewControllerDelegate {
+    @objc optional func onDismissed()
+}
 
 final class CompletesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
-    let todoService = TodoService.shared
-    var items: [TodoItem] { todoService.items.filter { $0.completed } }
-    var onDismissed: (() -> Void)?
+    private let todoService = TodoService.shared
+    private var items: [TodoItem] { todoService.items.filter { $0.completed } }
 
-//    var delegate: CompletesViewControllerDelegate?
+//    var onDismissed: (() -> Void)?
+    var delegate: CompletesViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,8 @@ final class CompletesViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        onDismissed?()
-//        delegate?.onDismissed()
+//        onDismissed?()
+        delegate?.onDismissed?()
     }
 
     func initializeUI() {

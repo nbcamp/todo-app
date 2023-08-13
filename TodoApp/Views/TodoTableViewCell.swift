@@ -25,18 +25,18 @@ final class TodoTableViewCell: UITableViewCell {
         initializeUI()
     }
 
-    func initializeUI() {
+    private func initializeUI() {
         setupGesture()
     }
 
-    func setupGesture() {
+    private func setupGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         todoLabel.isUserInteractionEnabled = true
         todoLabel.addGestureRecognizer(tapGesture)
     }
 
     @objc
-    func labelTapped() {
+    private func labelTapped() {
         onLabelTapped?(todoLabel)
     }
 

@@ -6,8 +6,8 @@ final class ViewController: UIViewController {
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var completesButton: UIButton!
 
-    var todoService = TodoService.shared
-    var items: [TodoItem] { todoService.items.filter { !$0.completed } }
+    private var todoService = TodoService.shared
+    private var items: [TodoItem] { todoService.items.filter { !$0.completed } }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,16 +120,17 @@ extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CompletesVC" {
             if let vc = segue.destination as? CompletesViewController {
-                vc.onDismissed = {
-                    self.tableView.reloadData()
-                }
+                vc.delegate = self
+//                vc.onDismissed = {
+//                    self.tableView.reloadData()
+//                }
             }
         }
     }
 }
 
-//extension ViewController: CompletesViewControllerDelegate {
-//    func onDismissed() {
-//        tableView.reloadData()
-//    }
-//}
+ extension ViewController: CompletesViewControllerDelegate {
+    func onDismissed() {
+        tableView.reloadData()
+    }
+ }
